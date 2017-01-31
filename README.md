@@ -1,8 +1,8 @@
-[![npm](https://img.shields.io/npm/v/fine-uploader-wrappers.svg)](https://www.npmjs.com/package/fine-uploader-wrappers)
+[![npm](https://img.shields.io/npm/v/fine-uploader-wrap.svg)](https://www.npmjs.com/package/fine-uploader-wrap)
 [![license](https://img.shields.io/badge/license-MIT-brightgreen.svg)](LICENSE)
 [![Stackoverflow](https://img.shields.io/badge/ask-on%20stack%20overflow-brightgreen.svg)](http://stackoverflow.com/questions/tagged/fine-uploader)[![Build Status](https://travis-ci.org/FineUploader/fine-uploader-wrappers.svg?branch=master)](https://travis-ci.org/FineUploader/fine-uploader-wrappers)
 
-[![Sauce Test Status](https://saucelabs.com/browser-matrix/fine-uploader-wrappers.svg)](https://saucelabs.com/u/fine-uploader-wrappers)
+[![Sauce Test Status](https://saucelabs.com/browser-matrix/fine-uploader-wrap.svg)](https://saucelabs.com/u/fine-uploader-wrap)
 
 These wrap a Fine Uploader instance as ES6 classes and provide additional features such as the ability to dynamically register multiple event/callback listeners. These classes are requirements in projects such as [React Fine Uploader](https://github.com/FineUploader/react-fine-uploader) and [Vue Fine Uploader](https://github.com/FineUploader/vue-fineuploader), among others.
 

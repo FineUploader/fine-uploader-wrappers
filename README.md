@@ -17,20 +17,6 @@ These wrap a Fine Uploader instance as ES6 classes and provide additional featur
    - [Azure](#azure) - upload files directly to Azure storage
    - [S3](#s3) - upload files to directly to an Amazon Simple Storage Service (S3) bucket. Your server must sign requests using a private key.
    - [Traditional](#traditional) - upload files to a server you created and control.
-- [High-level Components](#high-level-components)
-   - [`<Gallery />`](#gallery-)
-- [Low-level Components](#low-level-components)
-   - [`<CancelButton />`](#cancelbutton-)
-   - [`<DeleteButton />`](#deletebutton-)
-   - [`<Dropzone />`](#dropzone-)
-   - [`<FileInput />`](#fileinput-)
-   - [`<Filename />`](#filename-)
-   - [`<Filesize />`](#filesize-)
-   - [`<PauseResumeButton />`](#pauseresumebutton-)
-   - [`<ProgressBar />`](#progressbar-)
-   - [`<RetryButton />`](#retrybutton-)
-   - [`<Status />`](#status-)
-   - [`<Thumbnail />`](#thumbnail-)
 
 ### Installing
 

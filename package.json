@@ -1,0 +1,59 @@
+{
+  "name": "fine-uploader-wrappers",
+  "version": "0.1.0",
+  "license": "MIT",
+  "description": "Fine Uploader core ES6 class wrappers that provide additional features.",
+  "author":     {
+    "name": "Ray Nicholus",
+    "url": "http://raynicholus.com"
+  },
+  "homepage": "https://github.com/FineUploader/fine-uploader-wrappers#readme",
+  "repository": "https://github.com/FineUploader/fine-uploader-wrappers",
+  "keywords": [
+    "file",
+    "blob",
+    "file-uploader",
+    "fine-uploader",
+    "upload"
+  ],
+  "main": "traditional.js",
+  "dependencies": {
+    "fine-uploader": ">=5.11.10 <6.0.0",
+    "object-assign": "4.1.0"
+  },
+  "devDependencies": {
+    "babel-cli": "latest",
+    "babel-core": "latest",
+    "babel-eslint": "latest",
+    "babel-loader": "latest",
+    "babel-plugin-rewire": "latest",
+    "babel-preset-es2015": "latest",
+    "babel-plugin-syntax-class-properties": "latest",
+    "babel-plugin-transform-class-properties": "latest",
+    "babel-plugin-transform-object-rest-spread": "latest",
+    "es6-promise": "latest",
+    "eslint": "latest",
+    "jasmine": "latest",
+    "jasmine-core": "latest",
+    "karma": "latest",
+    "karma-firefox-launcher": "latest",
+    "karma-jasmine": "latest",
+    "karma-sauce-launcher": "latest",
+    "karma-sourcemap-loader": "latest",
+    "karma-spec-reporter": "latest",
+    "karma-webpack": "latest",
+    "webpack": "1.14.0",
+    "webpack-node-externals": "latest"
+  },
+  "engines": {
+    "node": ">=5.0.0"
+  },
+  "scripts": {
+    "build": "rm -rf lib && mkdir -p lib && cp -pR src lib && babel lib --out-dir lib",
+    "lint": "eslint src/. --ext .js --cache",
+    "manual-test": "webpack --config config/webpack.manual-test.config.js --watch --display-error-details",
+    "push-to-npm": "cp package.json README.md LICENSE lib && (cd lib ; npm publish)",
+    "release": "npm run test && npm run build && npm run push-to-npm",
+    "test": "npm run lint && if [ $CI ]; then karma start config/karma.conf; else karma start config/karma.dev.conf; fi"
+  }
+}

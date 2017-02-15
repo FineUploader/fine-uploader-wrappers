@@ -1,6 +1,6 @@
 [![npm](https://img.shields.io/npm/v/fine-uploader-wrappers.svg)](https://www.npmjs.com/package/fine-uploader-wrappers)
 [![license](https://img.shields.io/badge/license-MIT-brightgreen.svg)](LICENSE)
-[![Stackoverflow](https://img.shields.io/badge/ask-on%20stack%20overflow-brightgreen.svg)](http://stackoverflow.com/questions/tagged/fine-uploader)[![Build Status](https://travis-ci.org/FineUploader/fine-uploader-wrappers.svg?branch=master)](https://travis-ci.org/FineUploader/fine-uploader-wrappers)
+[![Build Status](https://travis-ci.org/FineUploader/fine-uploader-wrappers.svg?branch=master)](https://travis-ci.org/FineUploader/fine-uploader-wrappers)
 
 [![Sauce Test Status](https://saucelabs.com/browser-matrix/fine-uploader-wrap.svg)](https://saucelabs.com/u/fine-uploader-wrap)
 

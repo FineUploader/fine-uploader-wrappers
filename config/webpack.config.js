@@ -12,13 +12,13 @@ module.exports = {
             src: path.resolve('src'),
             test: path.resolve('src/test/unit')
         },
-        extensions: ['', '.js']
+        extensions: ['.js']
     },
     module: {
-        loaders: [
+        rules: [
             {
                 test: /\.js/,
-                loader: 'babel',
+                loader: 'babel-loader',
                 exclude: /node_modules/
             }
         ]

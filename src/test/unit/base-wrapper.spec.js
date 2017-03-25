@@ -216,5 +216,12 @@ describe('Fine Uploader wrapper classes', () => {
                 }, 100)
             }, 100)
         })
+
+        it('provides access to the entire qq namespace', () => {
+            const wrapper = new FineUploaderTraditional({ options: {} })
+
+            expect(wrapper.qq).toBeTruthy()
+            expect(wrapper.qq.status.QUEUED).toBe('queued')
+        })
     })
 })

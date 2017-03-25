@@ -22,6 +22,8 @@ export default class BaseWrapper {
             qq,
             type
         })
+
+        this.qq = qq
     }
 
     off(name, callback) {

@@ -22,6 +22,8 @@ These wrap a Fine Uploader instance as ES6 classes and provide additional featur
 
 If you require support for IE11, you'll need to install an A+/Promise spec compliant polyfill. To install this wrapper classes package, simply `npm install fine-uploader-wrappers` and see the documentation below for your specific integration instructions (based on your needs).
 
+You'll also need to explicitly install Fine Uploader. See the `peerDependencies` section of this project's `package.json` for acceptable version.
+
 ### Wrapper Classes
 
 Note: You can access the entire `qq` namespace on any uploader instance. For example, if you are using Fine Uploader S3, and want to access the `status` object, your code may look something like this:

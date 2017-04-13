@@ -6,8 +6,6 @@
 
 These wrap a Fine Uploader instance as ES6 classes and provide additional features such as the ability to dynamically register multiple event/callback listeners. These classes are requirements in projects such as [React Fine Uploader](https://github.com/FineUploader/react-fine-uploader) and [Vue Fine Uploader](https://github.com/FineUploader/vue-fineuploader), among others.
 
-**This is currently an unstable in-progress project. Breaking changes may occur at any time without notice until the version has reached 1.0.** 
-
 ## Docs
 
 ### Quick Reference
@@ -22,7 +20,7 @@ These wrap a Fine Uploader instance as ES6 classes and provide additional featur
 
 If you require support for IE11, you'll need to install an A+/Promise spec compliant polyfill. To install this wrapper classes package, simply `npm install fine-uploader-wrappers` and see the documentation below for your specific integration instructions (based on your needs).
 
-You'll also need to explicitly install Fine Uploader. See the `peerDependencies` section of this project's `package.json` for acceptable version.
+You'll also need to explicitly install [Fine Uploader](https://github.com/FineUploader/fine-uploader). See the `peerDependencies` section of this project's `package.json` for acceptable version.
 
 ### Wrapper Classes
 

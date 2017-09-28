@@ -5,6 +5,8 @@ export const thenable = [
     'onPasteReceived',
     'onSubmit',
     'onSubmitDelete',
+    'onUpload',
+    'onUploadChunk',
     'onValidate',
     'onValidateBatch'
 ]

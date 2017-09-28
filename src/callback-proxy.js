@@ -71,7 +71,17 @@ const executeThenableCallbacks = ({ registeredCallbacks, originalCallbackArgumen
     return Promise.resolve()
 }
 
-const executeThenableCallback = ({ registeredCallbacks, originalCallbackArguments} ) => {
+
+const getResultToPass = ({ newResult, previousResult }) => {
+    if (newResult !== null && (typeof newResult) === 'object') {
+        return objectAssign({}, previousResult || {}, newResult)
+    }
+    else {
+        return newResult || previousResult
+    }
+}
+
+const executeThenableCallback = ({ registeredCallbacks, originalCallbackArguments, previousResult } ) => {
     return new Promise((resolve, reject) => {
         const callback = registeredCallbacks.pop()
 
@@ -80,12 +90,14 @@ const executeThenableCallback = ({ registeredCallbacks, originalCallbackArgument
         if (returnValue && returnValue.then) {
             returnValue
                 .then(result => {
+                    const resultToPass = getResultToPass({ newResult: result, previousResult })
+
                     if (registeredCallbacks.length) {
-                        executeThenableCallback({ registeredCallbacks, originalCallbackArguments })
+                        executeThenableCallback({ registeredCallbacks, originalCallbackArguments, previousResult: resultToPass })
                             .then(resolve, reject)
                     }
                     else {
-                        resolve(result)
+                        resolve(resultToPass)
                     }
                 })
                 .catch(error => reject(error))
@@ -94,12 +106,14 @@ const executeThenableCallback = ({ registeredCallbacks, originalCallbackArgument
             reject()
         }
         else {
+            const resultToPass = getResultToPass({ newResult: returnValue, previousResult })
+
             if (registeredCallbacks.length) {
-                executeThenableCallback({ registeredCallbacks, originalCallbackArguments })
+                executeThenableCallback({ registeredCallbacks, originalCallbackArguments, previousResult: resultToPass })
                     .then(resolve, reject)
             }
             else {
-                resolve()
+                resolve(resultToPass)
             }
         }
     })

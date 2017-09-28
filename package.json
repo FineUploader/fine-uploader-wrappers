@@ -1,6 +1,6 @@
 {
   "name": "fine-uploader-wrappers",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "MIT",
   "description": "Fine Uploader core ES6 class wrappers that provide additional features.",
   "author":     {

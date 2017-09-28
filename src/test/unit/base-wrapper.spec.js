@@ -192,6 +192,104 @@ describe('Fine Uploader wrapper classes', () => {
             }, 100)
         })
 
+        it('passes aggregated resolved Promise objects from all callbacks to Fine Uploader - all callbacks return promises and objects', done => {
+            let onSubmitResult
+
+            const wrapper = new FineUploaderTraditional({
+                options: {
+                    autoUpload: false,
+                    callbacks: {
+                        onSubmit: function() {
+                            return Promise.resolve({ callbackOne: 'hi' })
+                        }
+                    }
+                }
+            })
+
+            wrapper.on('submit', () => {
+                return Promise.resolve({ callbackTwo: 'ho' })
+            })
+
+            wrapper.methods._onSubmitCallbackSuccess = (id, name, result) => {
+                onSubmitResult = result
+            }
+
+            wrapper.methods.addFiles(sampleBlobWrapper)
+
+            setTimeout(() => {
+                expect(onSubmitResult).toEqual({
+                    callbackOne: 'hi',
+                    callbackTwo: 'ho'
+                })
+
+                done()
+            }, 100)
+        })
+
+        it('passes aggregated resolved Promise objects from all callbacks to Fine Uploader - all callbacks return promises, only some return objects', done => {
+            let onSubmitResult
+
+            const wrapper = new FineUploaderTraditional({
+                options: {
+                    autoUpload: false,
+                    callbacks: {
+                        onSubmit: function() {
+                            return Promise.resolve()
+                        }
+                    }
+                }
+            })
+
+            wrapper.on('submit', () => {
+                return Promise.resolve({ callbackTwo: 'ho' })
+            })
+
+            wrapper.methods._onSubmitCallbackSuccess = (id, name, result) => {
+                onSubmitResult = result
+            }
+
+            wrapper.methods.addFiles(sampleBlobWrapper)
+
+            setTimeout(() => {
+                expect(onSubmitResult).toEqual({
+                    callbackTwo: 'ho'
+                })
+
+                done()
+            }, 100)
+        })
+
+        it('passes aggregated resolved Promise objects from all callbacks to Fine Uploader - only some callbacks return promises and objects', done => {
+            let onSubmitResult
+
+            const wrapper = new FineUploaderTraditional({
+                options: {
+                    autoUpload: false,
+                    callbacks: {
+                        onSubmit: function() {}
+                    }
+                }
+            })
+
+            wrapper.on('submit', () => {
+                return Promise.resolve({ callbackTwo: 'ho' })
+            })
+
+            wrapper.methods._onSubmitCallbackSuccess = (id, name, result) => {
+                onSubmitResult = result
+            }
+
+            wrapper.methods.addFiles(sampleBlobWrapper)
+
+            setTimeout(() => {
+                expect(onSubmitResult).toEqual({
+                    callbackTwo: 'ho'
+                })
+
+                done()
+            }, 100)
+        })
+
         it('allows callback handlers to be removed', done => {
             const handler = () => callbacksHit++
             let callbacksHit = 0

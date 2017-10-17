@@ -1,6 +1,9 @@
 import qq from 'fine-uploader/lib/core'
 
-import FineUploaderTraditional from 'src/traditional'
+import FineUploaderTraditional, { qq as traditionalQq } from 'src/traditional'
+import { qq as s3Qq } from 'src/s3'
+import { qq as azureQq } from 'src/azure'
+
 
 const sampleBlob = new Blob(['hi!'], { type : 'text/plain' })
 const sampleBlobWrapper = { blob: sampleBlob, name: 'test' }
@@ -315,11 +318,17 @@ describe('Fine Uploader wrapper classes', () => {
             }, 100)
         })
 
-        it('provides access to the entire qq namespace', () => {
+        it('provides access to the entire qq namespace from wrapper instance', () => {
             const wrapper = new FineUploaderTraditional({ options: {} })
 
             expect(wrapper.qq).toBeTruthy()
             expect(wrapper.qq.status.QUEUED).toBe('queued')
+        })
+
+        it('provides access to the entire qq namespace from wrapper export', () => {
+            expect(traditionalQq.status.QUEUED).toBe('queued')
+            expect(s3Qq.status.QUEUED).toBe('queued')
+            expect(azureQq.status.QUEUED).toBe('queued')
         })
     })
 })

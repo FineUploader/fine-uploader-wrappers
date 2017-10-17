@@ -12,3 +12,5 @@ export default class FineUploaderAzure extends BaseWrapper {
         })
     }
 }
+
+export { qq }

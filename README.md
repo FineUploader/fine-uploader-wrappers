@@ -27,8 +27,19 @@ You'll also need to explicitly install [Fine Uploader](https://github.com/FineUp
 Note: You can access the entire `qq` namespace on any uploader instance. For example, if you are using Fine Uploader S3, and want to access the `status` object, your code may look something like this:
 
 ```js
+import FineUploaderS3 from 'fine-uploader-wrappers/s3'
+
 const uploader = new FineUploaderS3({ ... })
 const queuedFileStatus = uploader.qq.status.QUEUED
+```
+
+_-or-_ via the wrapper module:
+
+```js
+import FineUploaderS3, { qq } from 'fine-uploader-wrappers/s3'
+
+const uploader = new FineUploaderS3({ ... })
+const queuedFileStatus = qq.status.QUEUED
 ```
 
 #### Azure

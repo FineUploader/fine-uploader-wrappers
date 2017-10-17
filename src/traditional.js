@@ -12,3 +12,5 @@ export default class FineUploaderTraditional extends BaseWrapper {
         })
     }
 }
+
+export { qq }

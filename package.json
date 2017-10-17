@@ -1,6 +1,6 @@
 {
   "name": "fine-uploader-wrappers",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "license": "MIT",
   "description": "Fine Uploader core ES6 class wrappers that provide additional features.",
   "author":     {
@@ -55,7 +55,7 @@
     "build": "rm -rf lib && mkdir -p lib && cp -pR src/ lib && babel lib --out-dir lib",
     "lint": "eslint src/. --ext .js --cache",
     "manual-test": "webpack --config config/webpack.manual-test.config.js --watch --display-error-details",
-    "push-to-npm": "cp package.json README.md LICENSE lib && (cd lib ; npm publish)",
+    "push-to-npm": "cp package.json README.md LICENSE lib && (cd lib ; npm publish --tag next)",
     "release": "npm run test && npm run build && npm run push-to-npm",
     "test": "npm run lint && if [ $CI ]; then karma start config/karma.conf; else karma start config/karma.dev.conf; fi"
   }
